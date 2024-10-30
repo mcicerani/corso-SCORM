@@ -1,0 +1,65 @@
+<manifest identifier="com.example.course" version="1.2" xmlns="http://www.imsproject.org/xsd/imscp-rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp-rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="...">
+
+    <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+    </metadata>
+
+    <!-- Definizione della struttura organizzativa del corso -->
+
+    <organizations default="org-id">
+        <organization identifier="org-id">
+            <title>Sviluppo Web 101</title>
+
+            <!-- Elenco dei moduli/lezioni nel corso, specificati come <item> -->
+
+            <item identifier="item1" identifierref="resource1">
+                <title>Introduzione</title>
+            </item>
+            <item identifier="item2" identifierref="resource2">
+                <title>HTML</title>
+            </item>
+            <item identifier="item3" identifierref="resource3">
+                <title>CSS</title>
+            </item>
+            <item identifier="item4" identifierref="resource4">
+                <title>JavaScript</title>
+            </item>
+            <item identifier="item5" identifierref="resource5">
+                <title>Quiz Finale</title>
+            </item>
+        </organization>
+    </organizations>
+
+    <!-- Definizione delle risorse associate a ciascun modulo/lezione -->
+
+    <resources>
+        <resource identifier="resource1" type="webcontent" adlcp:scormType="sco" href="index.html">
+            <file href="index.html"/>
+            <file href="./js/index.js"/>
+        </resource>
+        <resource identifier="resource2" type="webcontent" adlcp:scormType="sco" href="video-html.html">
+            <file href="video-html.html"/>
+            <file href="./js/video-html.js"/>
+            <file href="./media/video-html.mp4"/>
+            <file href="./css/style.css"/>
+        </resource>
+        <resource identifier="resource3" type="webcontent" adlcp:scormType="sco" href="video-css.html">
+            <file href="video-css.html"/>
+            <file href="./js/video-css.js"/>
+            <file href="./media/video-css.mp4"/>
+            <file href="./css/style.css"/>
+        </resource>
+        <resource identifier="resource4" type="webcontent" adlcp:scormType="sco" href="video-js.html">
+            <file href="video-js.html"/>
+            <file href="./js/video-js.js"/>
+            <file href="./media/video-js.mp4"/>
+            <file href="./css/style.css"/>
+        </resource>
+        <resource identifier="resource4" type="webcontent" adlcp:scormType="sco" href="quiz.html">
+            <file href="quiz.html"/>
+            <file href="./js/quiz.js"/>
+            <file href="./css/style.css"/>
+        </resource>
+    </resources>
+</manifest>
