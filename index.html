@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/SCORM_API_wrapper.js"></script>
     <title>Sviluppo Web 101</title>
 </head>
-<body>
-    <h1>Benvenuti al Corso di Web Development!</h1>
-    <p>
-        In questo corso, esploreremo i fondamenti dello sviluppo web, coprendo HTML, CSS 
-        e JavaScript. Che tu sia un principiante assoluto o qualcuno che desidera rinfrescare 
-        le proprie conoscenze, questo corso è progettato per fornirti le competenze necessarie 
-        per creare pagine web dinamiche e coinvolgenti.
-    </p>
-    <h2>Cosa Imparerai</h2>
-    <p>
-        Comprendere la struttura e la semantica di un documento HTML
-        Applicare stili e layout alle tue pagine web con CSS
-        Introdurre dinamismo e interattività nelle tue applicazioni web con JavaScript
-        Creare progetti pratici per consolidare le tue conoscenze
-        Perché Scegliere Questo Corso?
-        Questo corso è stato progettato per essere pratico e orientato ai risultati. Con 
-        esempi chiari e progetti pratici, potrai applicare immediatamente ciò che hai imparato. 
-        Inoltre, il nostro approccio passo-passo ti guiderà attraverso ogni concetto, assicurandoti 
-        di avere una solida comprensione dei fondamenti del web development.
-    </p>
-    <h3>
-        Preparati a immergerti nel mondo dello sviluppo web! Iniziamo insieme questo entusiasmante 
-    </h3>
-    <button onclick="goToNextLesson()">Prossima lezione!</button>
+    <body>
+        <div class="head">
+            <img class="logo" src="./media/logo.png" alt="logo" style="height: 2.5rem; margin: 0 1rem">
+        </div>
+        <div>
+            <div class="content-container">
+                <h1>Benvenuti al Corso di Web Development!</h1>
+                <p>
+                    In questo corso, esploreremo i fondamenti dello sviluppo web, coprendo <span class="bold">HTML</span>, <span class="bold">CSS</span> 
+                    e <span class="bold">JavaScript</span>. Che tu sia un principiante assoluto o qualcuno che desidera rinfrescare 
+                    le proprie conoscenze, questo corso è progettato per fornirti le competenze necessarie 
+                    per creare pagine web dinamiche e coinvolgenti.
+                </p>
+                <h2>Cosa Imparerai</h2>
+                <p>
+                    Comprendere la <span class="bold">struttura</span> e la <span class="bold">semantica</span> di un documento HTML.<br>
+                    Applicare <span class="bold">stili</span> e <span class="bold">layout</span> alle tue pagine web con CSS.<br>
+                    Introdurre <span class="bold">dinamismo</span> e <span class="bold">interattività</span> nelle tue applicazioni web con JavaScript.<br>
+                    Creare progetti pratici per consolidare le tue conoscenze.<br>
+                </p>
+                    <h2>Perché Scegliere Questo Corso?</h2>
+                <p>
+                    Questo corso è stato progettato per essere <span class="bold">pratico</span> e orientato ai <span class="bold">risultati</span>. Con 
+                    esempi chiari e <span class="bold">progetti pratici</span>, potrai applicare immediatamente ciò che hai imparato. 
+                    Inoltre, il nostro approccio passo-passo ti guiderà attraverso ogni concetto, assicurandoti 
+                    di avere una solida comprensione dei fondamenti del web development.
+                </p>
+                <h3>
+                    Preparati a immergerti nel mondo dello sviluppo web! Iniziamo insieme questo entusiasmante viaggio!
+                </h3>
+                <button onclick="goToNextLesson()">Prossima lezione!</button>
+            </div>
+    </div>
     <script src="./js/main.js"></script>
 </body>
 </html>

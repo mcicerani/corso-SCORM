@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/SCORM_API_wrapper.js"></script>
     <title>Video Lezione JavaScript</title>
 </head>
 <body>
-    <h1>Video 1: Introduzione a JavaScript</h1>
-    <p>
-        Benvenuti al terzo video del nostro corso! In questo episodio, ci 
-        concentreremo su JavaScript, il linguaggio di programmazione che ci consente di 
-        aggiungere interattività e dinamicità alle nostre pagine web. Scopriremo come JavaScript 
-        può migliorare l'esperienza dell'utente e gestire il contenuto delle pagine. Impareremo 
-        a integrare JavaScript nel nostro HTML e vedremo insieme esempi pratici di come rendere 
-        le nostre applicazioni web più coinvolgenti!
-    </p>
-    <video src="media/video-js.mp4" controls></video>
-    <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+    <div class="head">
+        <img class="logo" src="./media/logo.png" alt="logo" style="height: 2.5rem; margin: 0 1rem">
+    </div>
+    <div>
+        <div class="content-container">
+            <h1>Video 3: Introduzione a JavaScript</h1>
+            <p>
+                Benvenuti al terzo video del nostro corso! In questo episodio, ci 
+                concentreremo su <span class="bold">JavaScript</span>, il linguaggio di programmazione che ci consente di 
+                aggiungere <span class="bold">interattività</span> e <span class="bold">dinamicità</span> alle nostre pagine web. Scopriremo come JavaScript 
+                può migliorare <span class="bold">l'esperienza dell'utente</span> e gestire il <span class="bold">contenuto delle pagine</span>. Impareremo 
+                a integrare JavaScript nel nostro HTML e vedremo insieme esempi pratici di come rendere 
+                le nostre applicazioni web più coinvolgenti!
+            </p>
+            <video src="media/video-js.mp4" controls></video>
+            <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+        </div>
+    </div>
     <script src="./js/video-js.js"></script>
 </body>
 </html>

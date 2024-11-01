@@ -1,12 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background-color: #292929;
+    color: #E6D62D;
+    margin: 0;
+}
+
+/* 
+HEADER STYLES 
+*/
+
+.head {
+    background-color: #E6D62D;
+    color: #292929;
+    padding: 10px 0;
+    margin: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #292929;
+}
+
+
+/* 
+CONTENT STYLES 
+*/
+
+
+.content-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black;
-    margin: 0;
+    background-color: #292929;
+    min-height: 80vh;
+    padding: 1rem 2rem;
+}
+
+.content-container h1 {
+    font-size: 2.5rem;
+
+}
+
+.content-container h2 {
+    font-size: 2rem;
+}
+
+.content-container h3 {
+    font-size: 1.5rem;
+}
+
+.content-container p {
+    color: ghostwhite;
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: #E6D62D;
+    color: #292929;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20rem;
+    height: 3rem;
+    align-self: end;
+    margin: 1rem 1rem;;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+video {
+    height: 50vh;
+    border-radius: 5px;
+    align-self: center;
+    margin-top: 5rem;
+}
+
+.bold{
+    font-weight: bold;
+    color: #E6D62D;
 }
 
 /* 
@@ -14,9 +83,9 @@ QUIZ STYLES
 */
 
 .quiz-container {
-    background-color: black;
-    border: 1px solid yellow;
-    color: yellow;
+    background-color: #292929;
+    border: 1px solid #E6D62D;
+    color: #E6D62D;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -38,15 +107,21 @@ QUIZ STYLES
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: yellow;
-    color: black;
-}
-
-.options button:hover {
-    background-color: yellow;
+    background-color: #E6D62D;
+    color: #292929;
 }
 
 .feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     margin-top: 10px;
+    width: 100%;
+}
+
+.feedback button {
+    margin-top: 10px;
+    width: 100%;
 }

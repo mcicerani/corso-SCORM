@@ -4,19 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/SCORM_API_wrapper.js"></script>
     <title>Video Lezione html</title>
 </head>
 <body>
-    <h1>Video 1: Introduzione all'HTML</h1>
-    <p>
-        Benvenuti al primo video del nostro corso di web development! Oggi 
-        iniziamo il nostro viaggio esplorando HTML, il linguaggio di markup fondamentale 
-        per la creazione di pagine web. Scopriremo insieme cos'è l'HTML, la sua struttura 
-        e i principali tag che definiscono il contenuto delle nostre pagine. Preparatevi 
-        a creare la vostra prima semplice pagina web!
-    </p>
-    <video src="media/video-html.mp4" controls></video>
-    <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+    <div class="head">
+        <img class="logo" src="./media/logo.png" alt="logo" style="height: 2.5rem; margin: 0 1rem">
+    </div>
+    <div>
+        <div class="content-container">
+            <h1>Video 1: Introduzione all'HTML</h1>
+            <p>
+                Benvenuti al primo video del nostro corso di web development! Oggi 
+                iniziamo il nostro viaggio esplorando <span class="bold">HTML</span>, il linguaggio di markup fondamentale 
+                per la creazione di <span class="bold">pagine web.</span> Scopriremo insieme cos'è l'HTML, la sua struttura 
+                e i principali <span class="bold">tag</span> che definiscono il contenuto delle nostre pagine. Preparatevi 
+                a creare la vostra prima semplice pagina web!
+            </p>
+            <video src="media/video-html.mp4" controls></video>
+            <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+        </div>
+    </div>
     <script src="./js/video-html.js"></script>
 </body>
 </html>

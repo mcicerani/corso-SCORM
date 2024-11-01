@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/SCORM_API_wrapper.js"></script>
     <title>Video Lezione CSS</title>
 </head>
 <body>
-    <h1>Video 2: Introduzione al CSS</h1>
-    <p>
-        Benvenuti al secondo video del nostro corso! Ora che abbiamo una 
-        comprensione di base di HTML, passiamo al CSS, il linguaggio che definisce lo stile 
-        e il layout delle pagine web. In questo video, esploreremo come utilizzare i selettori 
-        e le proprietà CSS per rendere le nostre pagine non solo funzionali, ma anche visivamente 
-        attraenti. Scopriremo le diverse modalità per integrare il CSS e dare vita ai nostri 
-        progetti web!
-    </p>
-    <video src="media/video-css.mp4" controls></video>
-    <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+    <div class="head">
+        <img class="logo" src="./media/logo.png" alt="logo" style="height: 2.5rem; margin: 0 1rem">
+    </div>
+    <div >
+        <div class="content-container">
+            <h1>Video 2: Introduzione al CSS</h1>
+            <p>
+                Benvenuti al secondo video del nostro corso! Ora che abbiamo una 
+                comprensione di base di HTML, passiamo al <span class="bold">CSS</span>, il linguaggio che definisce lo <span class="bold">stile</span> 
+                e il <span class="bold">layout</span> delle pagine web. In questo video, esploreremo come utilizzare i <span class="bold">selettori</span> 
+                e le proprietà CSS per rendere le nostre pagine non solo funzionali, ma anche <span class="bold">visivamente 
+                attraenti.</span> Scopriremo le diverse modalità per integrare il CSS e dare vita ai nostri 
+                progetti web!
+            </p>
+            <video src="media/video-css.mp4" controls></video>
+            <button onclick="goToNextLesson()" style="display: none;">Prossima lezione!</button>
+        </div>
+    </div>
     <script src="./js/video-css.js"></script>
 </body>
 </html>
