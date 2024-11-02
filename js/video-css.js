@@ -26,7 +26,6 @@ video.addEventListener("timeupdate", function() {
     // Mostra il pulsante "Prossima Lezione" e aggiorna lo stato a "completed" quando il video è terminato
     if (video.currentTime === video.duration) {
         scorm.set("cmi.core.lesson_status", "completed");
-        nextLessonBtn.style.display = "block";
     }
 });
 
@@ -35,14 +34,5 @@ window.onbeforeunload = function() {
     scorm.set("cmi.core.session_time", videoWatchedSeconds); // Salva il tempo visualizzato in sessione
     scorm.save(); // Salva i progressi
     scorm.quit(); // Chiude la connessione SCORM
-    const confirmationMessage = 'Sei sicuro di voler lasciare questa pagina? I tuoi progressi potrebbero andare persi.';
-    event.returnValue = confirmationMessage; // Messaggio di conferma per il browser
-    return confirmationMessage;
-};
+    };
 
-// Funzione per avanzare alla prossima lezione (video JavaScript)
-function goToNextLesson() {
-    scorm.set("cmi.core.lesson_location", "video-js"); // Imposta la prossima lezione come video JavaScript
-    scorm.save(); // Salva i progressi
-    window.location.href = "video-js.html"; // Naviga alla pagina del video JavaScript
-}

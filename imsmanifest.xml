@@ -28,9 +28,6 @@
             <item identifier="item5" identifierref="resource5">
                 <title>Quiz Finale</title>
             </item>
-            <item identifier="item6" identifierref="resource6">
-                <title>Riepilogo</title>
-            </item>
         </organization>
     </organizations>
 
@@ -40,7 +37,7 @@
         <resource identifier="resource1" type="webcontent" adlcp:scormType="sco" href="index.html">
             <file href="index.html"/>
             <file href="./js/SCORM_API_wrapper.js"/>
-            <file href="./js/index.js"/>
+            <file href="./js/main.js"/>
             <file href="./css/style.css"/>
         </resource>
         <resource identifier="resource2" type="webcontent" adlcp:scormType="sco" href="video-html.html">
@@ -68,12 +65,6 @@
             <file href="quiz.html"/>
             <file href="./js/SCORM_API_wrapper.js"/>            
             <file href="./js/quiz.js"/>
-            <file href="./css/style.css"/>
-        </resource>
-        <resource identifier="resource6" type="webcontent" adlcp:scormType="sco" href="riepilogo.html">
-            <file href="riepilogo.html"/>
-            <file href="./js/SCORM_API_wrapper.js"/>            
-            <file href="./js/riepilogo.js"/>
             <file href="./css/style.css"/>
         </resource>
     </resources>

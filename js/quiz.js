@@ -118,10 +118,6 @@ window.onload = function() {
 window.onbeforeunload = function() {
     scorm.save();
     scorm.quit(); // Chiudi la connessione SCORM
-    const confirmationMessage = 'Sei sicuro di voler lasciare questa pagina? I tuoi progressi potrebbero andare persi.';
-    event.returnValue = confirmationMessage; // Messaggio di conferma per il browser
-    return confirmationMessage;
-
 };
 
 function loadQuestion() {
@@ -168,18 +164,27 @@ function nextQuestion() {
     if (currentQuestion < quizData.length) {
         loadQuestion();
     } else {
-        // Invia il punteggio e lo stato SCORM
-        scorm.set("cmi.core.score.raw", score);
-        scorm.set("cmi.core.lesson_status", score >= 70 ? "passed" : "failed");
-        scorm.set("cmi.suspend_data.quiz", "100"); // Indica il completamento del quiz
-        scorm.save();
-        
-        // Mostra il pulsante "Prossima Lezione"
-        document.getElementById('quiz').innerHTML = "<h2>Quiz completato! Grazie per aver partecipato.</h2>";
-        document.getElementById('nextLessonBtn').style.display = "block";
-    }
-}
+        const totalQuestions = quizData.length;
+        const finalScore = (score / (totalQuestions * 10)) * 100;
 
-function goToNextLesson() {
-    window.location.href = "riepilogo.html"; // Link alla pagina di riepilogo o conclusione
+        scorm.set("cmi.core.score.raw", finalScore);
+        scorm.set("cmi.core.score.min", 0);
+        scorm.set("cmi.core.score.max", 100);
+        
+        // Imposta il lesson_status in base al punteggio finale
+        if (finalScore >= 70) {
+            scorm.set("cmi.core.lesson_status", "passed");
+        } else {
+            scorm.set("cmi.core.lesson_status", "failed");
+        }
+        
+        scorm.set("cmi.completion_status", "completed");
+
+        // Invia dati di completamento
+        scorm.set("cmi.suspend_data", score);
+        scorm.save(); // Salva le informazioni SCORM
+
+        // Mostra il messaggio finale
+        document.getElementById('quiz').innerHTML = `<h2>Quiz completato! Hai ottenuto: ${finalScore}%</h2>`;
+    }
 }
