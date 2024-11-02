@@ -60,7 +60,7 @@ button {
     cursor: pointer;
     width: 20rem;
     height: 3rem;
-    align-self: end;
+    align-self: center;
     margin: 1rem 1rem;;
     font-weight: bold;
     font-size: 1rem;
@@ -121,7 +121,7 @@ QUIZ STYLES
     width: 100%;
 }
 
-.feedback button {
-    margin-top: 10px;
-    width: 100%;
+#quiz button {
+    margin: 10px auto;
+    align-self: center;
 }

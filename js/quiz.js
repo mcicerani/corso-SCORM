@@ -1,3 +1,6 @@
+const scorm = pipwerks.SCORM; // Inizializza il wrapper SCORM
+scorm.version = "1.2";
+
 const quizData = [
     {
         question: "Cos'è l'HTML?",
@@ -102,6 +105,24 @@ const quizData = [
 ];
 
 let currentQuestion = 0;
+let score = 0;
+
+window.onload = function() {
+    const success = scorm.init(); // Inizializza la connessione SCORM
+    if (success) {
+        scorm.set("cmi.core.lesson_location", "quiz");
+    }
+    loadQuestion();
+};
+
+window.onbeforeunload = function() {
+    scorm.save();
+    scorm.quit(); // Chiudi la connessione SCORM
+    const confirmationMessage = 'Sei sicuro di voler lasciare questa pagina? I tuoi progressi potrebbero andare persi.';
+    event.returnValue = confirmationMessage; // Messaggio di conferma per il browser
+    return confirmationMessage;
+
+};
 
 function loadQuestion() {
     const questionData = quizData[currentQuestion];
@@ -116,7 +137,7 @@ function loadQuestion() {
     // Riabilita le opzioni
     const options = document.querySelectorAll('.option');
     options.forEach(option => {
-        option.disabled = false; // Abilita le opzioni
+        option.disabled = false;
     });
 }
 
@@ -127,12 +148,13 @@ function checkAnswer(answer) {
     // Disabilita le opzioni dopo che è stata data una risposta
     const options = document.querySelectorAll('.option');
     options.forEach(option => {
-        option.disabled = true; // Disabilita tutte le opzioni
+        option.disabled = true;
     });
 
     if (answer === questionData.correct) {
         feedback.innerText = "Corretto!";
         feedback.style.color = "#27ae60";
+        score += 10; // Incrementa il punteggio
     } else {
         feedback.innerText = `Risposta sbagliata. La risposta corretta era: ${questionData.correct}`;
         feedback.style.color = "#e74c3c";
@@ -146,9 +168,18 @@ function nextQuestion() {
     if (currentQuestion < quizData.length) {
         loadQuestion();
     } else {
+        // Invia il punteggio e lo stato SCORM
+        scorm.set("cmi.core.score.raw", score);
+        scorm.set("cmi.core.lesson_status", score >= 70 ? "passed" : "failed");
+        scorm.set("cmi.suspend_data.quiz", "100"); // Indica il completamento del quiz
+        scorm.save();
+        
+        // Mostra il pulsante "Prossima Lezione"
         document.getElementById('quiz').innerHTML = "<h2>Quiz completato! Grazie per aver partecipato.</h2>";
+        document.getElementById('nextLessonBtn').style.display = "block";
     }
 }
 
-// Carica la prima domanda all'avvio
-loadQuestion();
+function goToNextLesson() {
+    window.location.href = "riepilogo.html"; // Link alla pagina di riepilogo o conclusione
+}
