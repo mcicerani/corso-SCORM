@@ -108,16 +108,18 @@ let currentQuestion = 0;
 let score = 0;
 
 window.onload = function() {
-    const success = scorm.init(); // Inizializza la connessione SCORM
+    const success = pipwerks.SCORM.init(); // Inizializza la connessione SCORM
     if (success) {
-        scorm.set("cmi.core.lesson_location", "quiz");
+        pipwerks.SCORM.set("cmi.core.lesson_location", "quiz"); // Imposta il punto di inizio del quiz
+        pipwerks.SCORM.set("cmi.suspend_data", "0"); // Reimposta i dati del quiz a zero
     }
     loadQuestion();
 };
 
 window.onbeforeunload = function() {
-    scorm.save();
-    scorm.quit(); // Chiudi la connessione SCORM
+    pipwerks.SCORM.set("cmi.core.session_time", score); // Salva solo il tempo sessione, senza `suspend_data`
+    pipwerks.SCORM.save(); // Salva i dati
+    pipwerks.SCORM.quit(); // Chiudi la connessione SCORM
 };
 
 function loadQuestion() {
@@ -167,24 +169,23 @@ function nextQuestion() {
         const totalQuestions = quizData.length;
         const finalScore = (score / (totalQuestions * 10)) * 100;
 
-        scorm.set("cmi.core.score.raw", finalScore);
-        scorm.set("cmi.core.score.min", 0);
-        scorm.set("cmi.core.score.max", 100);
-        
-        // Imposta il lesson_status in base al punteggio finale
-        if (finalScore >= 70) {
-            scorm.set("cmi.core.lesson_status", "passed");
-        } else {
-            scorm.set("cmi.core.lesson_status", "failed");
-        }
-        
-        scorm.set("cmi.completion_status", "completed");
+        // Imposta i punteggi SCORM
+        pipwerks.SCORM.set("cmi.core.score.raw", score); // Salva il punteggio effettivo
+        pipwerks.SCORM.set("cmi.core.score.min", 0);
+        pipwerks.SCORM.set("cmi.core.score.max", totalQuestions * 10);
 
-        // Invia dati di completamento
-        scorm.set("cmi.suspend_data", score);
-        scorm.save(); // Salva le informazioni SCORM
+        // Imposta lo stato del lesson in base al punteggio finale
+        pipwerks.SCORM.set("cmi.core.lesson_status", finalScore >= 70 ? "passed" : "failed");
+
+        // Salva i dati SCORM senza `suspend_data`
+        pipwerks.SCORM.save(); // Salva le informazioni SCORM
 
         // Mostra il messaggio finale
-        document.getElementById('quiz').innerHTML = `<h2>Quiz completato! Hai ottenuto: ${finalScore}%</h2>`;
+        document.getElementById('quiz').innerHTML = `<h2>Quiz completato! Hai ottenuto: ${finalScore.toFixed(2)}%</h2>`;
+        document.getElementById('endCourse').style.display = "block";
     }
+}
+
+function endCourse() {
+    pipwerks.SCORM.quit(); // Chiudi la connessione SCORM
 }

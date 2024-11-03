@@ -8,6 +8,6 @@ window.onload = function() {
     if (success) {
         // Imposta la posizione della lezione all'introduzione e lo stato a "completo"
         scorm.set("cmi.core.lesson_location", "index");
-        scorm.set("cmi.core.lesson_status", "completed");
+        scorm.set("cmi.core.lesson_status", "passed"); // Imposta lo stato a "passed"
     }
 };

@@ -23,9 +23,9 @@ video.addEventListener("timeupdate", function() {
     // Salva il progresso in SCORM in percentuale
     scorm.set("cmi.suspend_data.video-css", progress.toFixed(2)); 
     
-    // Mostra il pulsante "Prossima Lezione" e aggiorna lo stato a "completed" quando il video è terminato
+    // Aggiorna lo stato a "completed" quando il video è terminato
     if (video.currentTime === video.duration) {
-        scorm.set("cmi.core.lesson_status", "completed");
+        scorm.set("cmi.core.lesson_status", "passed"); // Imposta lo stato a "passed"
     }
 });
 
@@ -35,4 +35,3 @@ window.onbeforeunload = function() {
     scorm.save(); // Salva i progressi
     scorm.quit(); // Chiude la connessione SCORM
     };
-

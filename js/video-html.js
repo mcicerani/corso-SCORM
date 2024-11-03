@@ -25,7 +25,7 @@ video.addEventListener("timeupdate", function() {
     
     // Mostra il pulsante "Prossima Lezione" e aggiorna lo stato a "completed" quando il video è terminato
     if (video.currentTime === video.duration) {
-        scorm.set("cmi.core.lesson_status", "completed");
+        scorm.set("cmi.core.lesson_status", "passed"); // Imposta lo stato a "passed"
     }
 });
 
