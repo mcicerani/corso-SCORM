@@ -117,7 +117,6 @@ window.onload = function() {
 };
 
 window.onbeforeunload = function() {
-    pipwerks.SCORM.set("cmi.core.session_time", score); // Salva solo il tempo sessione, senza `suspend_data`
     pipwerks.SCORM.save(); // Salva i dati
     pipwerks.SCORM.quit(); // Chiudi la connessione SCORM
 };
